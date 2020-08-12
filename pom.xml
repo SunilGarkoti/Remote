@@ -9,7 +9,6 @@
 
 	<build>
 
-
 		<plugins>
 			<!-- Compiler plug-in -->
 			<plugin>
