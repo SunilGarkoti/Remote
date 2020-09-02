@@ -6,11 +6,16 @@ pipeline {
     Location = "/Users/sunilgarkoti/pipeline/"
 }
     
+    environment {
+    PATH = "/Users/sunilgarkoti/pipeline:$PATH"
+  }
+    
+    
     stages {
         stage('Build') { 
             steps { 
                 echo "Build is running" 
-                sh "/Users/sunilgarkoti/pipeline/make.sh"
+                 echo "PATH is: $PATH"
             }
         }
         stage('Test'){
