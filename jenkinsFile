@@ -9,7 +9,7 @@ pipeline {
         stage('Build') { 
             steps { 
                 echo "Build is running" 
-                sh "make.sh"
+                sh $(path).make.sh
             }
         }
         stage('Test'){
