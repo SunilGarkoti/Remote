@@ -10,7 +10,7 @@ pipeline {
         stage('Build') { 
             steps { 
                 echo "Build is running" 
-                echo $ Location+make.sh
+                echo "$Location+make.sh"
             }
         }
         stage('Test'){
