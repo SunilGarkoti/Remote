@@ -4,7 +4,7 @@ pipeline {
 
     
     environment {
-    PATH = "/Users/sunilgarkoti/pipeline:$PATH"
+    PATH = "/Users/sunilgarkoti/pipeline"
   }
     
     
@@ -12,7 +12,7 @@ pipeline {
         stage('Build') { 
             steps { 
                 echo "Build is running" 
-                 echo "PATH is: $PATH"
+                sh 'PATH/make.sh'
             }
         }
         stage('Test'){
