@@ -12,15 +12,22 @@ pipeline {
         stage('Build') { 
             steps { 
                 echo "Build is running" 
-                sh '$PATH./make.sh'
             }
         }
         stage('Test'){
             steps {
                 echo "Test is running"
                  sh "/Users/sunilgarkoti/pipeline/make.sh"
-             
             }
+          
+           post {
+           always {
+           build 'Maven_Project'
+       }
+  }
+        
+        
+        
         }
         stage('Deploy') {
             steps {
