@@ -1,10 +1,7 @@
 
 pipeline { 
     agent any 
-    
-    environment {
-    Location = "/Users/sunilgarkoti/pipeline/"
-}
+
     
     environment {
     PATH = "/Users/sunilgarkoti/pipeline:$PATH"
