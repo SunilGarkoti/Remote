@@ -1,17 +1,21 @@
 pipeline { 
     agent any 
     
+    environment {
+    PATH = "/Users/sunilgarkoti/pipeline/"
+}
+    
     stages {
         stage('Build') { 
             steps { 
                 echo "Build is running" 
-                sh "/Users/sunilgarkoti/pipeline/make.sh"
+                sh "make.sh"
             }
         }
         stage('Test'){
             steps {
                 echo "Test is running"
-                 sh "/Users/sunilgarkoti/pipeline/make.sh"
+                 sh "make.sh"
              
             }
         }
