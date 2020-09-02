@@ -5,17 +5,20 @@ pipeline {
         stage('Build') { 
             steps { 
                 echo "Build is running" 
+                sh "/Users/sunilgarkoti/pipeline/make.sh"
             }
         }
         stage('Test'){
             steps {
                 echo "Test is running"
+                 sh "/Users/sunilgarkoti/pipeline/make.sh"
              
             }
         }
         stage('Deploy') {
             steps {
                 echo "Deployement is on processs"
+                 sh "/Users/sunilgarkoti/pipeline/make.sh"
             }
         }
     }
