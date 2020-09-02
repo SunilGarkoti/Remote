@@ -10,7 +10,7 @@ pipeline {
         stage('Build') { 
             steps { 
                 echo "Build is running" 
-                sh "$Location ./make.sh"
+                sh "/Users/sunilgarkoti/pipeline/make.sh"
             }
         }
         stage('Test'){
