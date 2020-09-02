@@ -9,13 +9,13 @@ pipeline {
         stage('Build') { 
             steps { 
                 echo "Build is running" 
-                sh $(path).make.sh
+                echo $(PATH)
             }
         }
         stage('Test'){
             steps {
                 echo "Test is running"
-                 sh "make.sh"
+                 sh "/Users/sunilgarkoti/pipeline/make.sh"
              
             }
         }
