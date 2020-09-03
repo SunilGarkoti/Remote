@@ -13,6 +13,15 @@ pipeline {
           steps {
                 echo "Test is running"       
                 build 'Maven_Project'
+                
+                 script {
+                    if (currentBuild.previousBuild.result == false) {
+                        echo 'failed'
+                    } else {
+                        echo 'I execute elsewhere'
+                    }
+                }
+                
             }
               
         }
