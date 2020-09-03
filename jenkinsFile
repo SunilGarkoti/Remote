@@ -8,12 +8,14 @@ pipeline {
                 echo "Build is running" 
             }
         }
-        stage('Test'){
+       
+       
+       try{
+       stage('Test'){
           
           steps {
                 echo "Test is running"       
                
-               try{
                build 'Maven_Project'
                }catch(e){
                build_ok = false
