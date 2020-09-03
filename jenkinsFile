@@ -1,12 +1,6 @@
 
 pipeline { 
     agent any 
-
-    
-    environment {
-    PATH = "/Users/sunilgarkoti/pipeline"
-  }
-    
     
     stages {
         stage('Build') { 
@@ -15,9 +9,14 @@ pipeline {
             }
         }
         stage('Test'){
-            steps {
+          environment { 
+                AN_ACCESS_KEY = credentials('git_username_password') 
+            }
+          
+          steps {
                 echo "Test is running"
-                 build 'Maven_Project'
+                
+                build 'Maven_Project'
             }
               
         }
