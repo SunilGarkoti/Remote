@@ -9,13 +9,9 @@ pipeline {
             }
         }
         stage('Test'){
-          environment { 
-                AN_ACCESS_KEY = credentials('git_username_password') 
-            }
           
           steps {
-                echo "Test is running"
-                
+                echo "Test is running"       
                 build 'Maven_Project'
             }
               
