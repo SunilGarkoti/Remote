@@ -13,16 +13,12 @@ pipeline {
        stage('Test'){
           
           steps {
+              
+               catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                 echo "Test is running"       
-          
-          script {
-          try {
-          echo 'do your stuff'
-          build 'Maven_Project'   
-          } catch (Exception e) {
-             echo 'Handle the exception!'
+               build 'Maven_Project'  
                 }
-                  }
+            
             }
         }
         stage('Deploy') {
