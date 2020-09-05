@@ -14,16 +14,16 @@ pipeline {
           
           steps {
                 echo "Test is running"       
-               
-               build 'Maven_Project'
-           post {
-        always {
-            echo 'always running'
-        }
-         }
-               
+          
+          script {
+          try {
+          sh 'do your stuff'
+          build 'Maven_Project'   
+          } catch (Exception e) {
+             sh 'Handle the exception!'
+                }
+                  }
             }
-              
         }
         stage('Deploy') {
             steps {
