@@ -17,10 +17,10 @@ pipeline {
           
           script {
           try {
-          sh 'do your stuff'
+          echo 'do your stuff'
           build 'Maven_Project'   
           } catch (Exception e) {
-             sh 'Handle the exception!'
+             echo 'Handle the exception!'
                 }
                   }
             }
