@@ -19,21 +19,23 @@ pipeline {
        
       
        
-         
-         stage ('Build') {
-            steps {
-              git credentialsId: 'git_username_password', url: 'https://github.com/SunilGarkoti/jenkins.git'
+       stage('Build') {
+  steps {
+    git credentialsId: 'git_username_password', url: 'https://github.com/SunilGarkoti/jenkins.git'
               withMaven {
               sh "mvn clean verify"
             } 
-          
-           }} post {
-             always {
+  }
+
+  post {
+   always {
             currentBuild.result = "SUCCESS"
         }
-    }
-    
-    
+  }
+}
+
+       
+      
      stage('three') {
         echo "Test is successful"
     }
