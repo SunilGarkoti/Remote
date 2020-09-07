@@ -1,49 +1,39 @@
 pipeline { 
-    agent any 
-    
-  tools {
-  jdk 'Java_Home'
-  maven 'Maven_Home'
-   }
-    
-    
-    stages {
-        stage('Initialize') { 
-            steps { 
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                '''
-            }
-        }
-       
-      
-       
-       stage('Build') {
-       steps {
-   
-   catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                   git credentialsId: 'git_username_password', url: 'https://github.com/SunilGarkoti/jenkins.git'
-              withMaven {
-              sh "mvn clean verify"
-            } 
-                }
-  }
 
-  
+agent any 
+
+tools {
+jdk 'Java_Home'
+maven 'Maven_Home'
 }
 
-    stage('Three'){
-    steps{
-    
-    echo "Awesome"
-    }
-    
-    }
-     
-     
-      
+stages {
 
-   }
-    
+stage('Initialize') { 
+steps { 
+sh '''
+echo "PATH = ${PATH}"
+echo "M2_HOME = ${M2_HOME}"
+'''
+}
+}
+
+stage('Build') {
+steps {
+catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+git credentialsId: 'git_username_password', url: 'https://github.com/SunilGarkoti/jenkins.git'
+withMaven {
+sh "mvn clean verify"
+} 
+}
+}
+}
+
+stage('Three'){
+steps{
+echo "Awesome"
+}
+}
+
+}
 }
