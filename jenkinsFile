@@ -1,30 +1,29 @@
 pipeline { 
     agent any 
     
+  tools {
+  jdk 'Java_Home'
+  maven 'Maven_Home'
+   }
+    
+    
     stages {
-        stage('Build') { 
+        stage('Initialize') { 
             steps { 
-                echo "Build is running" 
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                '''
             }
         }
        
       
-       stage('Test'){
-          
-          steps {
-              
-               catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-                echo "Test is running"       
-               build 'Maven_Project'  
-                }
-            
-            }
-        }
-        stage('Deploy') {
+         stage ('Build') {
             steps {
-                echo "Deployement is on processs"
-                 sh "/Users/sunilgarkoti/pipeline/make.sh"
+                sh 'mvn -Dmaven.test.failure.ignore=true install' 
             }
+            
         }
+       
     }
 }
