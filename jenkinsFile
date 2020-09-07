@@ -20,7 +20,9 @@ pipeline {
       
          stage ('Build') {
             steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true install' 
+              git credentialsId: 'git_username_password', url: 'https://github.com/SunilGarkoti/Pull_Request_Builderr.git'
+              
+              sh 'mvn -Dmaven.test.failure.ignore=true install' 
             }
             
         }
