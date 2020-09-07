@@ -36,9 +36,6 @@ pipeline {
 
        
       
-     stage('three') {
-        echo "Test is successful"
-    }
 
    }
     
