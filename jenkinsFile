@@ -20,7 +20,7 @@ pipeline {
       
          stage ('Build') {
             steps {
-              git credentialsId: 'git_username_password', url: 'https://github.com/SunilGarkoti/Pull_Request_Builderr.git'
+              git credentialsId: 'git_username_password', url: 'https://github.com/SunilGarkoti/jenkins.git'
               
               sh 'mvn -Dmaven.test.failure.ignore=true install' 
             }
