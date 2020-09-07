@@ -18,30 +18,33 @@ pipeline {
         }
        
       
+       try{
+         
          stage ('Build') {
             steps {
               git credentialsId: 'git_username_password', url: 'https://github.com/SunilGarkoti/jenkins.git'
-             
-             try{
               withMaven {
               sh "mvn clean verify"
             } 
-           
-           }catch(e){
+          
+           }} }catch(e){
              build_ok = false
-           
            }
-           
-           if(build_ok) {
+    
+    
+     stage('three') {
+        sh 'exit 0'
+    }
+
+    if(build_ok) {
         currentBuild.result = "SUCCESS"
     } else {
         currentBuild.result = "FAILURE"
     }
-           
-           
-           }
-            
-        }
-       
-    }
+    
 }
+
+
+
+
+
