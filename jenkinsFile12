@@ -1,0 +1,31 @@
+
+pipeline { 
+    agent any 
+    
+    stages {
+        stage('Build') { 
+            steps { 
+                echo "Build is running" 
+            }
+        }
+       
+      
+       stage('Test'){
+          
+          steps {
+              
+               catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                echo "Test is running"       
+               build 'Maven_Project'  
+                }
+            
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo "Deployement is on processs"
+                 sh "/Users/sunilgarkoti/pipeline/make.sh"
+            }
+        }
+    }
+}
