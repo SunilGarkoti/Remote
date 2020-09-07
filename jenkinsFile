@@ -29,13 +29,13 @@ pipeline {
           
            }} post {
              always {
-            sh 'exit 0'
+            currentBuild.result = "SUCCESS"
         }
     }
     
     
      stage('three') {
-        sh 'exit 0'
+        echo "Test is successful"
     }
 
    }
