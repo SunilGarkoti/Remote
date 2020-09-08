@@ -5,6 +5,7 @@ pipeline {
     PATH = "/Users/sunilgarkoti/pipeline/"
 }
     
+    
     stages {
         stage('Build') { 
             steps { 
